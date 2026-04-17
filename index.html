@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אבי שירותים ותיקונים | זמינות, אמינות ומקצועיות</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&family=Heebo:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Assistant', 'sans-serif'], display: ['Heebo', 'sans-serif'] },
+                    colors: { 
+                        brand: '#0f172a', /* כחול כהה/שחור - משדר אמינות */
+                        accent: '#f97316', /* כתום עז - צבע של כלי עבודה ושירות */
+                        accentLight: '#fdba74',
+                        darkBg: '#020617',
+                        chatBg: '#FFFFFF', 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: var(--darkBg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)),
+                        url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+
+        .text-glow-accent { text-shadow: 0 0 30px rgba(249, 115, 22, 0.5); }
+
+        .pulse-accent { animation: pulseGlow 2.5s infinite; }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(249, 115, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+        }
+
+        .bubble-enter { animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(15px); }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+        .typing-dot { animation: typing 1.4s infinite ease-in-out; background-color: #f97316; border-radius: 50%; width: 7px; height: 7px; margin: 0 2px; display: inline-block; }
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <nav class="fixed w-full glass-panel z-40 border-b border-white/5 bg-brand/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="font-display text-2xl font-black tracking-tight text-white flex items-center gap-2">
+                    <i class="fas fa-tools text-accent"></i> אבי<span class="text-accent">תיקונים</span>
+                </div>
+                <button onclick="toggleBot()" class="bg-accent text-white px-6 py-2.5 rounded-xl font-bold hover:bg-orange-600 transition shadow-lg text-sm flex items-center gap-2">
+                    <i class="fas fa-bolt"></i> הזמן שירות עכשיו
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-bg min-h-screen flex items-center relative pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+            <div class="flex flex-col items-center text-center space-y-8" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 border border-accent/30 bg-accent/10 text-accentLight px-5 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                    צוות חירום זמין כעת באזור המרכז
+                </div>
+                <h1 class="font-display text-5xl sm:text-7xl font-black mb-4 leading-tight text-glow-accent text-white">
+                    תקלה בבית? אל תבזבזו זמן.<br>
+                    <span class="text-accent">אנחנו כבר בדרך אליכם.</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-300 mb-10 font-medium max-w-3xl mx-auto">
+                    אני כרגע באמצע עבודה אצל לקוח, אבל העוזרת הדיגיטלית שלי כאן כדי לקחת את כל הפרטים. תקתקו את התקלה בצ'אט, ואני אחזור אליכם עם מחיר וזמן הגעה מדויק.
+                </p>
+                <button onclick="toggleBot()" class="bg-accent text-white font-black text-2xl px-10 py-5 rounded-2xl hover:scale-105 transition shadow-[0_10px_40px_rgba(249,115,22,0.4)] flex items-center gap-3">
+                    <i class="fab fa-whatsapp text-3xl"></i> פתח קריאת שירות (מהיר)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl border-b-4 border-accent hover:-translate-y-2 transition duration-300" data-aos="fade-up">
+                    <i class="fas fa-clock text-5xl text-accent mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-white">הגעה מהירה</h3>
+                    <p class="text-gray-400">אנחנו מבינים שפיצוץ בצינור לא יכול לחכות למחר. שירות VIP מהיר.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl border-b-4 border-accent hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-shield-alt text-5xl text-accent mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-white">אחריות על כל עבודה</h3>
+                    <p class="text-gray-400">מתקנים פעם אחת, ומתקנים טוב. אחריות מלאה על החלפים והעבודה.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl border-b-4 border-accent hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-tags text-5xl text-accent mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-white">מחיר שקוף מראש</h3>
+                    <p class="text-gray-400">בלי הפתעות ובלי אותיות קטנות. תשלחו תמונה בבוט ותקבלו הצעת מחיר.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="bot-toggle-btn" onclick="toggleBot()" class="fixed bottom-6 left-6 w-16 h-16 bg-accent rounded-full shadow-2xl flex items-center justify-center cursor-pointer z-50 pulse-accent hover:scale-110 transition-transform">
+        <i class="fas fa-comment-dots text-white text-3xl"></i>
+    </div>
+
+    <div id="bot-container" class="hidden fixed bottom-28 left-6 w-[90vw] max-w-[400px] h-[600px] bg-chatBg rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] z-50 flex flex-col overflow-hidden border border-gray-200">
+        
+        <div class="bg-brand px-5 py-4 flex items-center justify-between shadow-md z-10 shrink-0 border-b border-accent/50">
+            <div class="flex items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="מיקה העוזרת" class="w-11 h-11 rounded-full object-cover border-2 border-accent">
+                    <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-brand rounded-full"></div>
+                </div>
+                <div class="mr-3 text-right">
+                    <h2 class="font-bold text-white text-[16px] leading-tight">מיקה, נציגת שירות חכמה</h2>
+                    <p class="text-[12px] text-accent font-bold">הצוות בשטח, אני כאן בשבילכם</p>
+                </div>
+            </div>
+            <button onclick="toggleBot()" class="text-gray-400 hover:text-white transition text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div id="chat-box" class="flex-1 overflow-y-auto p-5 space-y-4 no-scrollbar bg-slate-50">
+        </div>
+
+        <div id="action-area" class="bg-white px-5 pb-5 pt-3 shrink-0 flex flex-col justify-end min-h-[70px] border-t border-gray-200 shadow-[0_-10px_20px_rgba(0,0,0,0.02)]">
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50 });
+
+        // מספר הטלפון של בעל המקצוע אליו יישלחו הלידים
+        const WHATSAPP_NUMBER = "972585812277"; 
+
+        const botContainer = document.getElementById('bot-container');
+        const toggleBtn = document.getElementById('bot-toggle-btn');
+        const chatBox = document.getElementById('chat-box');
+        const actionArea = document.getElementById('action-area');
+
+        let userAnswers = {};
+        let currentStep = 0;
+        let chatInitialized = false;
+
+        // התסריט החדש שסוגר עסקאות לבעלי מקצוע
+        const chatFlow = [
+            {
+                id: 'welcome',
+                type: 'button',
+                agentText: `היי! 👋 אבי כרגע נמצא על סולם אצל לקוח ולא יכול לענות. אני מיקה, העוזרת הדיגיטלית שלו. כדי שהוא לא יפספס אתכם - איזה שירות אתם צריכים?`,
+                options: [`אינסטלציה ונזילות 💧`, `תקלות חשמל ⚡`, `מנעולן / דלתות 🔑`, `תיקונים כלליים (הנדימן) 🛠️`]
+            },
+            {
+                id: 'urgency',
+                type: 'button',
+                agentText: `הבנתי. עד כמה התקלה הזו דחופה?`,
+                options: [`דחוף לעכשיו! (חירום) 🚨`, `אפשר במהלך היום 🕒`, `לא דחוף, מתי שיתפנה 📅`]
+            },
+            {
+                id: 'city',
+                type: 'input',
+                agentText: `מאה אחוז. באיזו עיר אתם נמצאים כדי שאבדוק אם הוא באזור?`,
+                placeholder: `הקלידו את שם העיר...`
+            },
+            {
+                id: 'name',
+                type: 'input',
+                agentText: `מצוין, הוא עובד באזור הזה. איך קוראים לכם כדי שיוכל לחזור אליכם מסודר?`,
+                placeholder: `שם פרטי...`
+            }
+        ];
+
+        function toggleBot() {
+            if (botContainer.classList.contains('hidden')) {
+                botContainer.classList.remove('hidden');
+                botContainer.classList.add('flex');
+                toggleBtn.innerHTML = '<i class="fas fa-times text-white text-3xl"></i>';
+                toggleBtn.classList.remove('pulse-accent');
+                
+                if (chatInitialized) {
+                    scrollToBottom();
+                } else {
+                    chatInitialized = true;
+                    setTimeout(playStep, 600); 
+                }
+            } else {
+                botContainer.classList.add('hidden');
+                botContainer.classList.remove('flex');
+                toggleBtn.innerHTML = '<i class="fas fa-comment-dots text-white text-3xl"></i>';
+                toggleBtn.classList.add('pulse-accent');
+            }
+        }
+
+        function scrollToBottom() {
+            setTimeout(() => { chatBox.scrollTop = chatBox.scrollHeight; }, 50);
+        }
+
+        function showTypingIndicator(callback) {
+            actionArea.innerHTML = ''; 
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'flex items-end mb-4 w-full';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="bg-white border border-gray-100 text-gray-800 p-3 rounded-2xl rounded-tr-sm inline-block shadow-sm">
+                    <div class="flex items-center space-x-1 space-x-reverse h-4 mt-1">
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                    </div>
+                </div>
+            `;
+            chatBox.appendChild(typingDiv);
+            scrollToBottom();
+
+            setTimeout(() => {
+                const indicator = document.getElementById('typing-indicator');
+                if(indicator) indicator.remove();
+                callback();
+            }, 1000);
+        }
+
+        function addAgentMessage(text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex items-end justify-start mb-3 w-full bubble-enter';
+            msgDiv.innerHTML = `
+                <div class="bg-white border border-gray-200 text-[#0f172a] p-4 rounded-2xl rounded-tr-sm shadow-sm max-w-[85%] text-[15px] font-medium leading-relaxed">
+                    ${text}
+                </div>
+            `;
+            chatBox.appendChild(msgDiv);
+            scrollToBottom();
+        }
+
+        function addUserMessage(text) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex items-end justify-end mb-4 w-full bubble-enter';
+            msgDiv.innerHTML = `
+                <div class="bg-brand text-white p-4 rounded-2xl rounded-tl-sm shadow-md max-w-[85%] text-[15px] font-bold">
+                    ${text}
+                </div>
+            `;
+            chatBox.appendChild(msgDiv);
+            scrollToBottom();
+        }
+
+        function showOptions(options, stepId) {
+            actionArea.innerHTML = '';
+            const flexDiv = document.createElement('div');
+            flexDiv.className = 'flex flex-col space-y-2 w-full'; 
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full bg-white text-brand border-2 border-gray-200 font-bold py-3.5 px-4 rounded-xl hover:border-accent hover:text-accent transition-all duration-300 shadow-sm text-[15px] text-right';
+                btn.innerText = opt;
+                btn.onclick = () => handleUserResponse(opt, stepId);
+                flexDiv.appendChild(btn);
+            });
+            actionArea.appendChild(flexDiv);
+            scrollToBottom(); 
+        }
+
+        function showInput(placeholder, stepId) {
+            actionArea.innerHTML = '';
+            const flexDiv = document.createElement('div');
+            flexDiv.className = 'flex space-x-2 space-x-reverse bg-gray-50 p-1.5 rounded-xl border-2 border-gray-200 focus-within:border-accent transition-colors';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'flex-1 bg-transparent border-none rounded-xl p-3 focus:outline-none focus:ring-0 text-[15px] px-4 font-bold text-brand';
+            input.placeholder = placeholder;
+            input.id = 'userInput';
+
+            const btn = document.createElement('button');
+            btn.className = 'bg-accent text-white font-black p-3 rounded-xl hover:bg-orange-600 transition w-12 flex items-center justify-center shrink-0 m-1 shadow-md';
+            btn.innerHTML = `<i class="fas fa-paper-plane transform -rotate-90"></i>`;
+            
+            btn.onclick = () => {
+                const val = input.value.trim();
+                if(val === '') return;
+                handleUserResponse(val, stepId);
+            };
+
+            input.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") btn.click();
+            });
+
+            flexDiv.appendChild(input);
+            flexDiv.appendChild(btn);
+            actionArea.appendChild(flexDiv);
+            
+            setTimeout(() => { input.focus(); scrollToBottom(); }, 100);
+        }
+
+        function handleUserResponse(text, stepId) {
+            actionArea.innerHTML = ''; 
+            userAnswers[stepId] = text; 
+            addUserMessage(text); 
+            
+            currentStep++;
+            if (currentStep < chatFlow.length) {
+                playStep(); 
+            } else {
+                finishChat(); 
+            }
+        }
+
+        function playStep() {
+            const step = chatFlow[currentStep];
+            showTypingIndicator(() => {
+                addAgentMessage(step.agentText);
+                setTimeout(() => {
+                    if (step.type === 'button') {
+                        showOptions(step.options, step.id);
+                    } else if (step.type === 'input') {
+                        showInput(step.placeholder, step.id);
+                    }
+                }, 100); 
+            });
+        }
+
+        function finishChat() {
+            showTypingIndicator(() => {
+                addAgentMessage(`מעולה ${userAnswers['name']}! רשמתי הכל. עכשיו לחיצה על הכפתור הירוק תעביר את כל הפרטים ישר לוואטסאפ של אבי! (אתם יכולים לצרף לו שם תמונה של התקלה, זה מאוד עוזר לו לתת הצעת מחיר מדויקת).`);
+                
+                let rawMessage = `*🔥 קריאת שירות חדשה מהאתר! (AI)*\n\n`;
+                rawMessage += `*👤 שם הלקוח:* ${userAnswers['name']}\n`;
+                rawMessage += `*🛠️ סוג התקלה:* ${userAnswers['welcome']}\n`;
+                rawMessage += `*📍 עיר:* ${userAnswers['city']}\n`;
+                rawMessage += `*⏱️ דחיפות:* ${userAnswers['urgency']}\n\n`;
+                rawMessage += `_לקוח יקר, אשמח אם תצרף/י תמונה של התקלה כדי שאוכל לתת הצעת מחיר במקום!_ 📸`;
+
+                const encodedMessage = encodeURIComponent(rawMessage);
+                const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                actionArea.innerHTML = `
+                    <a href="${whatsappLink}" target="_blank" class="w-full flex items-center justify-center bg-[#25D366] text-white font-black py-4 px-6 rounded-xl hover:bg-green-600 transition duration-300 shadow-lg text-[17px] bubble-enter">
+                        <i class="fab fa-whatsapp ml-2 text-2xl"></i>
+                        שלח פרטים לאבי בוואטסאפ
+                    </a>
+                `;
+                scrollToBottom();
+            });
+        }
+    </script>
+</body>
+</html>
