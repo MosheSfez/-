@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אבי שירותים ותיקונים | זמינות, אמינות ומקצועיות</title>
+    <title>שירותים ותיקונים | זמינות, אמינות ומקצועיות</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&family=Heebo:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,8 +16,8 @@
                 extend: {
                     fontFamily: { sans: ['Assistant', 'sans-serif'], display: ['Heebo', 'sans-serif'] },
                     colors: { 
-                        brand: '#0f172a', /* כחול כהה/שחור - משדר אמינות */
-                        accent: '#f97316', /* כתום עז - צבע של כלי עבודה ושירות */
+                        brand: '#0f172a',
+                        accent: '#f97316',
                         accentLight: '#fdba74',
                         darkBg: '#020617',
                         chatBg: '#FFFFFF', 
@@ -28,35 +28,18 @@
     </script>
     <style>
         body { background-color: var(--darkBg); color: white; overflow-x: hidden; scroll-behavior: smooth; }
-        
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .hero-bg {
-            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)),
-                        url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=1920&q=80') center/cover;
-        }
-
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .hero-bg { background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)), url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=1920&q=80') center/cover; }
         .text-glow-accent { text-shadow: 0 0 30px rgba(249, 115, 22, 0.5); }
-
         .pulse-accent { animation: pulseGlow 2.5s infinite; }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(249, 115, 22, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
-        }
-
-        .bubble-enter { animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(15px); }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(249, 115, 22, 0); } 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); } }
+        .bubble-enter { animation: slideUp 0.2s ease-out forwards; opacity: 0; transform: translateY(10px); }
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
-        .typing-dot { animation: typing 1.4s infinite ease-in-out; background-color: #f97316; border-radius: 50%; width: 7px; height: 7px; margin: 0 2px; display: inline-block; }
+        .typing-dot { animation: typing 1.2s infinite ease-in-out; background-color: #f97316; border-radius: 50%; width: 7px; height: 7px; margin: 0 2px; display: inline-block; }
         .typing-dot:nth-child(1) { animation-delay: 0s; }
         .typing-dot:nth-child(2) { animation-delay: 0.2s; }
         .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -66,7 +49,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="font-display text-2xl font-black tracking-tight text-white flex items-center gap-2">
-                    <i class="fas fa-tools text-accent"></i> אבי<span class="text-accent">תיקונים</span>
+                    <i class="fas fa-tools text-accent"></i> <span class="dynamic-name">אבי</span><span class="text-accent">תיקונים</span>
                 </div>
                 <button onclick="toggleBot()" class="bg-accent text-white px-6 py-2.5 rounded-xl font-bold hover:bg-orange-600 transition shadow-lg text-sm flex items-center gap-2">
                     <i class="fas fa-bolt"></i> הזמן שירות עכשיו
@@ -87,33 +70,11 @@
                     <span class="text-accent">אנחנו כבר בדרך אליכם.</span>
                 </h1>
                 <p class="text-xl sm:text-2xl text-gray-300 mb-10 font-medium max-w-3xl mx-auto">
-                    אני כרגע באמצע עבודה אצל לקוח, אבל העוזרת הדיגיטלית שלי כאן כדי לקחת את כל הפרטים. תקתקו את התקלה בצ'אט, ואני אחזור אליכם עם מחיר וזמן הגעה מדויק.
+                    אני <span class="dynamic-name">אבי</span>, ואני כרגע באמצע עבודה אצל לקוח. העוזרת הדיגיטלית שלי כאן כדי לקחת את כל הפרטים. תקתקו את התקלה בצ'אט, ואני אחזור אליכם עם מחיר וזמן הגעה מדויק.
                 </p>
                 <button onclick="toggleBot()" class="bg-accent text-white font-black text-2xl px-10 py-5 rounded-2xl hover:scale-105 transition shadow-[0_10px_40px_rgba(249,115,22,0.4)] flex items-center gap-3">
                     <i class="fab fa-whatsapp text-3xl"></i> פתח קריאת שירות (מהיר)
                 </button>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-brand relative border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-panel p-8 rounded-2xl border-b-4 border-accent hover:-translate-y-2 transition duration-300" data-aos="fade-up">
-                    <i class="fas fa-clock text-5xl text-accent mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2 text-white">הגעה מהירה</h3>
-                    <p class="text-gray-400">אנחנו מבינים שפיצוץ בצינור לא יכול לחכות למחר. שירות VIP מהיר.</p>
-                </div>
-                <div class="glass-panel p-8 rounded-2xl border-b-4 border-accent hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-shield-alt text-5xl text-accent mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2 text-white">אחריות על כל עבודה</h3>
-                    <p class="text-gray-400">מתקנים פעם אחת, ומתקנים טוב. אחריות מלאה על החלפים והעבודה.</p>
-                </div>
-                <div class="glass-panel p-8 rounded-2xl border-b-4 border-accent hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-tags text-5xl text-accent mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-2 text-white">מחיר שקוף מראש</h3>
-                    <p class="text-gray-400">בלי הפתעות ובלי אותיות קטנות. תשלחו תמונה בבוט ותקבלו הצעת מחיר.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -152,9 +113,20 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        // מספר הטלפון של בעל המקצוע אליו יישלחו הלידים
-        const WHATSAPP_NUMBER = "972585812277"; 
+        // משיכת השם והטלפון מהקישור
+        const urlParams = new URLSearchParams(window.location.search);
+        const proName = urlParams.get('name') || "אבי"; 
+        let proPhone = urlParams.get('phone') || "972585812277"; 
+        
+        if(proPhone.startsWith('0')) {
+            proPhone = '972' + proPhone.substring(1);
+        }
 
+        document.querySelectorAll('.dynamic-name').forEach(el => {
+            el.innerText = proName;
+        });
+
+        // הגדרות הבוט
         const botContainer = document.getElementById('bot-container');
         const toggleBtn = document.getElementById('bot-toggle-btn');
         const chatBox = document.getElementById('chat-box');
@@ -164,12 +136,11 @@
         let currentStep = 0;
         let chatInitialized = false;
 
-        // התסריט החדש שסוגר עסקאות לבעלי מקצוע
         const chatFlow = [
             {
                 id: 'welcome',
                 type: 'button',
-                agentText: `היי! 👋 אבי כרגע נמצא על סולם אצל לקוח ולא יכול לענות. אני מיקה, העוזרת הדיגיטלית שלו. כדי שהוא לא יפספס אתכם - איזה שירות אתם צריכים?`,
+                agentText: `היי! 👋 ${proName} כרגע נמצא על סולם אצל לקוח ולא יכול לענות. אני מיקה, העוזרת הדיגיטלית שלו. איזה שירות אתם צריכים?`,
                 options: [`אינסטלציה ונזילות 💧`, `תקלות חשמל ⚡`, `מנעולן / דלתות 🔑`, `תיקונים כלליים (הנדימן) 🛠️`]
             },
             {
@@ -182,12 +153,12 @@
                 id: 'city',
                 type: 'input',
                 agentText: `מאה אחוז. באיזו עיר אתם נמצאים כדי שאבדוק אם הוא באזור?`,
-                placeholder: `הקלידו את שם העיר...`
+                placeholder: `שם העיר...`
             },
             {
                 id: 'name',
                 type: 'input',
-                agentText: `מצוין, הוא עובד באזור הזה. איך קוראים לכם כדי שיוכל לחזור אליכם מסודר?`,
+                agentText: `מצוין. איך קוראים לכם כדי ש${proName} יוכל לחזור אליכם מסודר?`,
                 placeholder: `שם פרטי...`
             }
         ];
@@ -203,7 +174,7 @@
                     scrollToBottom();
                 } else {
                     chatInitialized = true;
-                    setTimeout(playStep, 600); 
+                    setTimeout(playStep, 200); 
                 }
             } else {
                 botContainer.classList.add('hidden');
@@ -214,31 +185,29 @@
         }
 
         function scrollToBottom() {
-            setTimeout(() => { chatBox.scrollTop = chatBox.scrollHeight; }, 50);
+            setTimeout(() => { chatBox.scrollTop = chatBox.scrollHeight; }, 30);
         }
 
         function showTypingIndicator(callback) {
             actionArea.innerHTML = ''; 
             const typingDiv = document.createElement('div');
-            typingDiv.className = 'flex items-end mb-4 w-full';
+            typingDiv.className = 'flex items-end mb-4 w-full bubble-enter';
             typingDiv.id = 'typing-indicator';
             typingDiv.innerHTML = `
                 <div class="bg-white border border-gray-100 text-gray-800 p-3 rounded-2xl rounded-tr-sm inline-block shadow-sm">
                     <div class="flex items-center space-x-1 space-x-reverse h-4 mt-1">
-                        <span class="typing-dot"></span>
-                        <span class="typing-dot"></span>
-                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
                     </div>
                 </div>
             `;
             chatBox.appendChild(typingDiv);
             scrollToBottom();
-
+            
             setTimeout(() => {
                 const indicator = document.getElementById('typing-indicator');
                 if(indicator) indicator.remove();
                 callback();
-            }, 1000);
+            }, 700); 
         }
 
         function addAgentMessage(text) {
@@ -265,67 +234,7 @@
             scrollToBottom();
         }
 
-        function showOptions(options, stepId) {
-            actionArea.innerHTML = '';
-            const flexDiv = document.createElement('div');
-            flexDiv.className = 'flex flex-col space-y-2 w-full'; 
-
-            options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = 'w-full bg-white text-brand border-2 border-gray-200 font-bold py-3.5 px-4 rounded-xl hover:border-accent hover:text-accent transition-all duration-300 shadow-sm text-[15px] text-right';
-                btn.innerText = opt;
-                btn.onclick = () => handleUserResponse(opt, stepId);
-                flexDiv.appendChild(btn);
-            });
-            actionArea.appendChild(flexDiv);
-            scrollToBottom(); 
-        }
-
-        function showInput(placeholder, stepId) {
-            actionArea.innerHTML = '';
-            const flexDiv = document.createElement('div');
-            flexDiv.className = 'flex space-x-2 space-x-reverse bg-gray-50 p-1.5 rounded-xl border-2 border-gray-200 focus-within:border-accent transition-colors';
-
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.className = 'flex-1 bg-transparent border-none rounded-xl p-3 focus:outline-none focus:ring-0 text-[15px] px-4 font-bold text-brand';
-            input.placeholder = placeholder;
-            input.id = 'userInput';
-
-            const btn = document.createElement('button');
-            btn.className = 'bg-accent text-white font-black p-3 rounded-xl hover:bg-orange-600 transition w-12 flex items-center justify-center shrink-0 m-1 shadow-md';
-            btn.innerHTML = `<i class="fas fa-paper-plane transform -rotate-90"></i>`;
-            
-            btn.onclick = () => {
-                const val = input.value.trim();
-                if(val === '') return;
-                handleUserResponse(val, stepId);
-            };
-
-            input.addEventListener("keypress", function(event) {
-                if (event.key === "Enter") btn.click();
-            });
-
-            flexDiv.appendChild(input);
-            flexDiv.appendChild(btn);
-            actionArea.appendChild(flexDiv);
-            
-            setTimeout(() => { input.focus(); scrollToBottom(); }, 100);
-        }
-
-        function handleUserResponse(text, stepId) {
-            actionArea.innerHTML = ''; 
-            userAnswers[stepId] = text; 
-            addUserMessage(text); 
-            
-            currentStep++;
-            if (currentStep < chatFlow.length) {
-                playStep(); 
-            } else {
-                finishChat(); 
-            }
-        }
-
+        // >>> זו הפונקציה ששכחתי בקוד הקודם והחזרתי אותה! <<<
         function playStep() {
             const step = chatFlow[currentStep];
             showTypingIndicator(() => {
@@ -340,24 +249,84 @@
             });
         }
 
+        function showOptions(options, stepId) {
+            actionArea.innerHTML = '';
+            const flexDiv = document.createElement('div');
+            flexDiv.className = 'flex flex-col space-y-2 w-full bubble-enter'; 
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full bg-white text-brand border-2 border-gray-200 font-bold py-3.5 px-4 rounded-xl hover:border-accent hover:text-accent transition-all duration-300 shadow-sm text-[15px] text-right';
+                btn.innerText = opt;
+                btn.onclick = () => handleUserResponse(opt, stepId);
+                flexDiv.appendChild(btn);
+            });
+            actionArea.appendChild(flexDiv);
+            scrollToBottom(); 
+        }
+
+        function showInput(placeholder, stepId) {
+            actionArea.innerHTML = '';
+            const flexDiv = document.createElement('div');
+            flexDiv.className = 'flex space-x-2 space-x-reverse bg-gray-50 p-1.5 rounded-xl border-2 border-gray-200 focus-within:border-accent transition-colors bubble-enter';
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'flex-1 bg-transparent border-none rounded-xl p-3 focus:outline-none focus:ring-0 text-[15px] px-4 font-bold text-brand';
+            input.placeholder = placeholder;
+            
+            const btn = document.createElement('button');
+            btn.className = 'bg-accent text-white font-black p-3 rounded-xl hover:bg-orange-600 transition flex items-center justify-center shrink-0 m-1 shadow-md w-20 text-[15px]';
+            btn.innerHTML = `שלח <i class="fas fa-paper-plane mr-2 text-sm"></i>`;
+            
+            btn.onclick = () => {
+                const val = input.value.trim();
+                if(val === '') return;
+                handleUserResponse(val, stepId);
+            };
+            
+            input.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    btn.click();
+                }
+            });
+            
+            flexDiv.appendChild(input);
+            flexDiv.appendChild(btn);
+            actionArea.appendChild(flexDiv);
+            setTimeout(() => { input.focus(); scrollToBottom(); }, 50);
+        }
+
+        function handleUserResponse(text, stepId) {
+            actionArea.innerHTML = ''; 
+            userAnswers[stepId] = text; 
+            addUserMessage(text); 
+            currentStep++;
+            if (currentStep < chatFlow.length) {
+                setTimeout(playStep, 100); 
+            } else {
+                setTimeout(finishChat, 100); 
+            }
+        }
+
         function finishChat() {
             showTypingIndicator(() => {
-                addAgentMessage(`מעולה ${userAnswers['name']}! רשמתי הכל. עכשיו לחיצה על הכפתור הירוק תעביר את כל הפרטים ישר לוואטסאפ של אבי! (אתם יכולים לצרף לו שם תמונה של התקלה, זה מאוד עוזר לו לתת הצעת מחיר מדויקת).`);
+                addAgentMessage(`מעולה ${userAnswers['name']}! רשמתי הכל. עכשיו לחיצה על הכפתור הירוק תעביר את כל הפרטים ישר לוואטסאפ של ${proName}!`);
                 
                 let rawMessage = `*🔥 קריאת שירות חדשה מהאתר! (AI)*\n\n`;
                 rawMessage += `*👤 שם הלקוח:* ${userAnswers['name']}\n`;
                 rawMessage += `*🛠️ סוג התקלה:* ${userAnswers['welcome']}\n`;
                 rawMessage += `*📍 עיר:* ${userAnswers['city']}\n`;
                 rawMessage += `*⏱️ דחיפות:* ${userAnswers['urgency']}\n\n`;
-                rawMessage += `_לקוח יקר, אשמח אם תצרף/י תמונה של התקלה כדי שאוכל לתת הצעת מחיר במקום!_ 📸`;
+                rawMessage += `_לקוח יקר, אשמח אם תצרף/י תמונה של התקלה!_ 📸`;
 
                 const encodedMessage = encodeURIComponent(rawMessage);
-                const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+                const whatsappLink = `https://wa.me/${proPhone}?text=${encodedMessage}`;
 
                 actionArea.innerHTML = `
                     <a href="${whatsappLink}" target="_blank" class="w-full flex items-center justify-center bg-[#25D366] text-white font-black py-4 px-6 rounded-xl hover:bg-green-600 transition duration-300 shadow-lg text-[17px] bubble-enter">
                         <i class="fab fa-whatsapp ml-2 text-2xl"></i>
-                        שלח פרטים לאבי בוואטסאפ
+                        שלח פרטים ל${proName} בוואטסאפ
                     </a>
                 `;
                 scrollToBottom();
